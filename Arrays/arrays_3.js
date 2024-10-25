@@ -6,25 +6,26 @@ let data = [
     ];
 
 //A
-data.push({name: "Pedro", telephone: "611944444", age: 25})
-data.push({name: "Julia", phone: "633232323", age: 37})
+data.push({name: "Pedro", telephone: "611944444", age: 25});
+data.push({name: "Julia", phone: "633232323", age: 37});
 
 //B
-//console.log(data);
+console.log(data);
 
 //C
+data.sort(function(n1, n2){
+    return n1.age - n2.age;
+});
+console.log(data);
+
 //D
+data.sort(function(n1, n2){
+    return n1.name.localeCompare(n2.name);
+});
+console.log(data);
 
 //E
-
-
-
-
-
-
-
-
-
-
-
-console.log(data);
+const newData = data.filter(function(persona){
+    return persona.age > 30;
+})
+console.log(newData);
