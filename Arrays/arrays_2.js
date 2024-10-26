@@ -1,15 +1,19 @@
+// Ejercicio 02
 const letras = new Array();
-// ingreso al inicio del array
+
+// insert al principio
 letras.unshift("A","B","C");
 
-// ingreso al final del array
+// insert al final
 letras.push("D","E");
 
-// elimino el primero
+// delete primer elemento
 letras.shift();
 
-// elimna el ultimo
+// delete ultimo elemento
 letras.pop();
 
-
-console.log(letras);
+// recorro con for of
+for ( let lts of letras){
+    console.log(lts);
+}
