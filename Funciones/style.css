@@ -1,0 +1,28 @@
+
+
+.body_titulo {
+    text-align: center;
+    margin-top: 40px;
+    color: rgba(0, 0, 0, 0.576);
+    font-family: monospace;
+}
+
+.body_contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.body_contenedor a {
+    padding: 20px;
+}
+
+/* Estados de links */
+a:visited,
+a:focus, 
+a:active, 
+a:link {
+    text-decoration: none;
+    font-family:monospace;
+}
