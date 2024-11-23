@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Practica 1</title>
+
+    <!-- Estilos independientes de la web -->
+    <style>
+        body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    font-family: monospace;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    }
+    #message {
+        /* Marcamos posicion del mensaje */
+        z-index: 2;
+        position: absolute;
+    }
+    </style>
+
+
+</head>
+<body>
+    <div id="message">
+        <h1>Pulsa <strong>ALT + F12</strong> para cambiar el fondo.</h1>
+        <button onclick="location.href='index.html';">volver</button>
+    </div>
+
+    <script>
+        let bg_default = true;
+
+        // Captura el presionar  una tecla y con el if verifico que la tecla que se toco es la deseada
+        document.addEventListener("keydown", (event) => {
+            if (event.altKey && event.key === "F12") {
+
+                // si bg_default es true cambio a una imagen
+                if (bg_default) {
+                    document.body.style.backgroundImage = "url('https://fastly.picsum.photos/id/11/2500/1667.jpg?hmac=xxjFJtAPgshYkysU_aqx2sZir-kIOjNR9vx0te7GycQ')";
+                    document.body.style.backgroundSize = "cover";
+                    document.body.style.backgroundRepeat = "no-repeat";
+                    document.body.style.backgroundPosition = "center";
+
+                // si cambio a una imagen, bg_default se guarda como false y en el proximo evento cambiaria por el else a negro
+                } else {
+                    document.body.style.backgroundImage = "none";
+                    document.body.style.backgroundColor = "black";
+                }
+                // Alternar el estado
+                bg_default = !bg_default;
+            }
+        });
+    </script>
+</body>
+</html>

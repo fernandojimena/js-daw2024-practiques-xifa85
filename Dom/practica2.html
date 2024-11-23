@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 2</title>
+
+        <!-- Estilos independientes de la web -->
+        <style>
+            body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        font-family: monospace;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+        }
+        </style>
+
+
+
+</head>
+<body>
+    <h2>Formulario de Registro</h2>
+    <form id="form">
+        <!-- email -->
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="example@example.com"/>
+            <p id="emailError" style="color: red; display: none;">El email debe tener el formato: xxxx@yyyy.zzz</p>
+        </div>
+        <br>
+
+        <!-- password -->
+        <div>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="xxxxxxxxxx"/>
+            <p id="passwordError" style="color: red; display: none;">La contraseña debe tener entre 8 y 10 caracteres</p>
+        </div>
+        <br>
+
+        <!-- boton  (propiedad disable) -->
+        <button type="submit" id="btn" disabled>Enviar</button>
+        <button onclick="location.href='index.html';">volver</button>
+    </form>
+
+    <script>
+        // capturo elementos en constantes
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const btnSubmit = document.getElementById("btn");
+
+        // capturo ubicacion de los errores en constantes
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+
+        // boleanos que actuan de controladores
+        let emailValid = false;
+        let passwordValid = false;
+
+        // validacion de email
+        emailInput.addEventListener("blur", () => {
+            // expresion regular para validar el mail
+            const emailPatron = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
+
+            // verifica el patron en la variable
+            if (emailPatron.test(emailInput.value)) {
+                emailError.style.display = "none"; 
+                emailValid = true;
+            } else {
+                emailError.style.display = "block"; 
+                emailValid = false;
+            }
+            toggleSubmitButton();
+        });
+
+        // validacion de password
+        passwordInput.addEventListener("blur", () => {
+
+            // verifica el largo de la cadena ingresada que sea entre 8 a 10
+            if (passwordInput.value.length >= 8 && passwordInput.value.length <= 10) {
+                passwordError.style.display = "none"; 
+                passwordValid = true;
+            } else {
+                passwordError.style.display = "block"; 
+                passwordValid = false;
+            }
+            toggleSubmitButton();
+        });
+
+        // borra el error al arreglar el input
+        emailInput.addEventListener("focus", () => {
+            emailError.style.display = "none";
+        });
+
+        passwordInput.addEventListener("focus", () => {
+            passwordError.style.display = "none";
+        });
+
+        // activa o desactiva el boton para enviar
+        function toggleSubmitButton() {
+            submitButton.disabled = !(emailValid && passwordValid);
+        }
+
+        // si no esta todo correcto no se envia
+        document.getElementById("form").addEventListener("submit", (event) => {
+
+            // evita el envio y da mensaje de alerta
+            if (!emailValid || !passwordValid) {
+                event.preventDefault(); 
+                alert("Por favor, corrige los errores antes de enviar.");
+            }
+        });
+    </script>
+</body>
+</html>
