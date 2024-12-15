@@ -14,7 +14,6 @@ function getCookie(cname) {
     return "";
 }
 
-
 // SETCOOKIE
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -23,12 +22,10 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname+"="+cvalue+";"+expires+";path=/";
 }
 
-
 // DELETE COOKIE
 function deleteCookie(cname) {
     document.cookie = cname+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
-
 
 // CONTADOR
 function visitas() {
@@ -42,14 +39,12 @@ function visitas() {
         alert('Maximno de 10 visitas superado')
     } else {
         //inserta el nuevo valor de viewer en la cookie
-        //caduca en 30 dias
         setCookie('viewer', viewer, 30);
     }
 
-    //Mostrar el numero de visitas
+    //Inserto numero de visitas
     document.getElementById("contador").innerText = viewer;
 }
 
 
- // Ejecutar la función cuando se carga la página
 window.onload = visitas;

@@ -25,5 +25,5 @@ function iniciarTemp() {
     });
 }
 
-// evento que inicia el temporalizador
+
 window.onload = iniciarTemp;
