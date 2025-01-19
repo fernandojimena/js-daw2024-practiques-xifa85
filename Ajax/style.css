@@ -1,0 +1,37 @@
+/* Estilos generales */
+body {
+    text-align: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+ul {
+    list-style: none;
+}
+ul li {
+    padding: 20px;
+}
+
+
+/* Estilos de la practica 1 y 2 */
+.pr1-titulo, .pr2-titulo{
+    font-size: 30px;
+}
+.pr1-usuario{
+    margin-top: 10px;
+}
+.pr1-usuario img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.pr1-usuario h2 {
+    margin: 10px 0;
+}
+.pr1-usuario p {
+    margin: 5px 0;
+}
+
